@@ -25,10 +25,10 @@
 			"category": "gDLmTU36PrmD13RK",
 			"name": "Output directory",
 			"param_name": "output_dir",
-			"description": "Directory in results/ where multiOmicDataSet properties will be saved",
+			"description": "Directory in results/ where multiOmicDataSet properties will be saved as individual csv and/or rds files",
 			"type": "text",
 			"value_type": "string",
-			"default_value": "moo"
+			"default_value": "moo-properties"
 		}
 	]
 }

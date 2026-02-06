@@ -10,7 +10,7 @@ setup_capsule_environment()
 # parse CLI arguments
 parser <- ArgumentParser(description = "Write multiOmicDataSet properties to disk")
 
-parser$add_argument("--output_dir", type="character", default="moo", help="Directory where properties will be saved")
+parser$add_argument("--output_dir", type="character", default="moo-properties", help="Directory in results/ where properties will be saved as individual CSV and/or RDS files")
 
 args <- parser$parse_args()
 
