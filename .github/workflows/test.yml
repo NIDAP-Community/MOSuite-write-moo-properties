@@ -1,0 +1,29 @@
+name: test
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Parse environment.json and set Docker image
+        id: docker_image
+        run: |
+          IMAGE=$(jq -r '.base_image' .codeocean/environment.json)
+          IMAGE=${IMAGE//codeocean/nciccbr}
+          echo "image=$IMAGE" >> $GITHUB_OUTPUT
+          echo "Using Docker image: $IMAGE"
+
+      - name: Run tests in Docker
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            -w /workspace \
+            ${{ steps.docker_image.outputs.image }} \
+            Rscript tests/testthat.R

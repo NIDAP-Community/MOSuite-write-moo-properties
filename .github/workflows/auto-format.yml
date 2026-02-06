@@ -1,0 +1,46 @@
+name: auto-format
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+env:
+  GH_TOKEN: ${{ github.token }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  auto-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request'
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v4
+        if: github.event_name != 'pull_request'
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+
+      - name: git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Format R code with air
+        uses: rstudio/shiny-workflows/format-r-code@v1
+
+      - name: commit & push
+        run: |
+          git add .
+          git commit -m "ci: 🤖 auto-format" || echo "nothing to commit"
+          git push || echo "nothing to push"
