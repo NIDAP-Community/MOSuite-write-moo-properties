@@ -1,7 +1,7 @@
 metadata_version: 1
-name: MOSuite - normalize counts
+name: MOSuite - write multiOmicDataSet properties
 description: |-
-  Normalize counts
+  Writes the properties of a multiOmicDataSet object to disk as separate CSV files.
 
   Multi-Omics Suite provides a suite of functions to clean, filter, batch-correct, normalize, visualize, and perform differential expression analysis. While the package is designed for differential RNA-seq analysis and multi-omics datasets, it can be used for any data represented in a counts table. See the website for more information, documentation, and examples: https://ccbr.github.io/MOSuite/
 tags:

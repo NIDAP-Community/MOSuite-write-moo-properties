@@ -7,7 +7,7 @@
 	},
 	"datasets": [
 		{
-			"id": "ca9bcc27-3bdf-4500-be66-a11d06d5d3fa",
+			"id": "318a2347-25cb-4210-9c1b-f9736f450deb",
 			"name": "multiOmicDataSet"
 		}
 	],
@@ -29,20 +29,6 @@
 			"type": "text",
 			"value_type": "string",
 			"default_value": "moo"
-		}
-	],
-	"results": [
-		{
-			"file_name": "moo/sample_metadata.csv"
-		},
-		{
-			"file_name": "moo/feature_annotation.csv"
-		},
-		{
-			"file_name": "moo/counts"
-		},
-		{
-			"file_name": "moo/analyses"
 		}
 	]
 }

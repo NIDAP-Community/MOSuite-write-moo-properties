@@ -19,4 +19,5 @@ moo <- load_moo_from_data_dir()
 
 # write multiOmicDataSet properties
 output_path <- file.path("..", "results", args$output_dir)
+message(glue("Writing results to {output_path}"))
 write_multiOmicDataSet_properties(moo, output_dir = output_path)
