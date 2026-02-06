@@ -1,0 +1,48 @@
+{
+	"version": 1,
+	"named_parameters": true,
+	"general": {
+		"title": "MOSuite-write-moo-properties",
+		"instructions": "Write multiOmicDataSet properties to disk as CSV and RDS files"
+	},
+	"datasets": [
+		{
+			"id": "ca9bcc27-3bdf-4500-be66-a11d06d5d3fa",
+			"name": "multiOmicDataSet"
+		}
+	],
+	"categories": [
+		{
+			"id": "gDLmTU36PrmD13RK",
+			"name": "Output Parameters",
+			"description": "Options for output directory",
+			"icon": "📁"
+		}
+	],
+	"parameters": [
+		{
+			"id": "UA4GuIpVAxdcmHAG",
+			"category": "gDLmTU36PrmD13RK",
+			"name": "Output directory",
+			"param_name": "output_dir",
+			"description": "Directory in results/ where multiOmicDataSet properties will be saved",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "moo"
+		}
+	],
+	"results": [
+		{
+			"file_name": "moo/sample_metadata.csv"
+		},
+		{
+			"file_name": "moo/feature_annotation.csv"
+		},
+		{
+			"file_name": "moo/counts"
+		},
+		{
+			"file_name": "moo/analyses"
+		}
+	]
+}
