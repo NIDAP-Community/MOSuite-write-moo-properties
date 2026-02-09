@@ -20,4 +20,4 @@ when referring to the issue so it will be closed automatically when the PR is me
 - [ ] This comment contains a description of changes with justifications, with any relevant issues linked.
 - [ ] Run the capsule in Code Ocean and ensure it completes successfully with no errors.
 - [ ] Update `CHANGELOG.md` with a short description of any user-facing changes and reference the PR number. Follow the style described in <https://style.tidyverse.org/news.html>
-- [ ] The `test` workflow succeeds on the latest commit.
+- [ ] The `tests` workflow succeeds on the latest commit.
