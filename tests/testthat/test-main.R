@@ -30,7 +30,10 @@ assert_properties_output <- function(output_dir, label = "") {
   )
   expect_true(
     length(analyses_files) > 0,
-    info = paste0(label_prefix, "analyses/ should contain analysis result files")
+    info = paste0(
+      label_prefix,
+      "analyses/ should contain analysis result files"
+    )
   )
 }
 
@@ -254,18 +257,26 @@ test_that("code/run creates readable property files from input data", {
       sub_dir <- file.path(output_dir, "counts", count_type)
       expect_true(
         dir.exists(sub_dir),
-        info = glue::glue("counts/{count_type}/ subdirectory should exist for nested counts")
+        info = glue::glue(
+          "counts/{count_type}/ subdirectory should exist for nested counts"
+        )
       )
       for (sub_count_type in names(counts_dat)) {
         csv_file <- file.path(sub_dir, paste0(sub_count_type, "_counts.csv"))
         expect_true(
           file.exists(csv_file),
-          info = glue::glue("{sub_count_type}_counts.csv should exist in counts/{count_type}/")
+          info = glue::glue(
+            "{sub_count_type}_counts.csv should exist in counts/{count_type}/"
+          )
         )
       }
     } else {
       # Simple data frame counts
-      csv_file <- file.path(output_dir, "counts", paste0(count_type, "_counts.csv"))
+      csv_file <- file.path(
+        output_dir,
+        "counts",
+        paste0(count_type, "_counts.csv")
+      )
       expect_true(
         file.exists(csv_file),
         info = glue::glue("{count_type}_counts.csv should exist in counts/")
@@ -282,18 +293,28 @@ test_that("code/run creates readable property files from input data", {
       sub_dir <- file.path(output_dir, "analyses", analysis_name)
       expect_true(
         dir.exists(sub_dir),
-        info = glue::glue("analyses/{analysis_name}/ subdirectory should exist for nested analyses")
+        info = glue::glue(
+          "analyses/{analysis_name}/ subdirectory should exist for nested analyses"
+        )
       )
     } else if (inherits(analysis_dat, "data.frame")) {
       # Data frame analyses - check for CSV file
-      csv_file <- file.path(output_dir, "analyses", paste0(analysis_name, ".csv"))
+      csv_file <- file.path(
+        output_dir,
+        "analyses",
+        paste0(analysis_name, ".csv")
+      )
       expect_true(
         file.exists(csv_file),
         info = glue::glue("{analysis_name}.csv should exist in analyses/")
       )
     } else {
       # Other analyses - check for RDS file
-      rds_file <- file.path(output_dir, "analyses", paste0(analysis_name, ".rds"))
+      rds_file <- file.path(
+        output_dir,
+        "analyses",
+        paste0(analysis_name, ".rds")
+      )
       expect_true(
         file.exists(rds_file),
         info = glue::glue("{analysis_name}.rds should exist in analyses/")
