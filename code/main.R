@@ -1,5 +1,4 @@
 #!/usr/bin/env Rscript
-rlang::global_entrace()
 library(argparse)
 library(glue)
 library(MOSuite)
@@ -8,9 +7,16 @@ library(MOSuite)
 setup_capsule_environment()
 
 # parse CLI arguments
-parser <- ArgumentParser(description = "Write multiOmicDataSet properties to disk")
+parser <- ArgumentParser(
+  description = "Write multiOmicDataSet properties to disk"
+)
 
-parser$add_argument("--output_dir", type="character", default="moo-properties", help="Directory in results/ where properties will be saved as individual CSV and/or RDS files")
+parser$add_argument(
+  "--output_dir",
+  type = "character",
+  default = "moo-properties",
+  help = "Directory in results/ where properties will be saved as individual CSV and/or RDS files"
+)
 
 args <- parser$parse_args()
 
