@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 jobs:
-  add-to-project:
+  CCBR-projects:
     runs-on: ubuntu-latest
     steps:
       - name: Generate a token
@@ -25,14 +25,32 @@ jobs:
           private-key: ${{ secrets.CCBR_BOT_PRIVATE_KEY }}
           owner: CCBR
 
-      - uses: actions/add-to-project@v1.0.2
+      - name: add to CCBR techdev project
+        uses: actions/add-to-project@v1.0.2
         with:
           project-url: https://github.com/orgs/CCBR/projects/17
           github-token: ${{ steps.generate-token.outputs.token }}
 
-      - name: add to MOSuite project
+      - name: add to CCBR MOSuite project
         uses: actions/add-to-project@v1.0.2
         if: github.event_name == 'issues'
         with:
           project-url: https://github.com/orgs/CCBR/projects/32
+          github-token: ${{ steps.generate-token.outputs.token }}
+  NIDAP-projects:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
+    steps:
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.CCBR_BOT_APP_ID }}
+          private-key: ${{ secrets.CCBR_BOT_PRIVATE_KEY }}
+          owner: NIDAP-Community
+
+      - name: add to NIDAP MOSuite project
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/orgs/NIDAP-Community/projects/3
           github-token: ${{ steps.generate-token.outputs.token }}
