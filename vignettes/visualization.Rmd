@@ -1,0 +1,152 @@
+---
+title: "Visualization with built-in plots"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{visualization}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+options(rmarkdown.html_vignette.check_title = FALSE)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 5,
+  fig.height = 4
+)
+```
+
+```{r load}
+library(MOSuite)
+```
+
+## Default plots from each step
+
+Default plots can be printed to the screen and/or saved to the disk.
+
+```{r options}
+# set options to print & save the plots
+options(moo_print_plots = TRUE)
+options(moo_save_plots = TRUE)
+# when moo_save_plots is TRUE, plots are saved to this directory:
+options(moo_plots_dir = "./figures")
+```
+
+See `?MOSuite::options` for more information.
+
+### clean
+
+```{r nidap_data_clean}
+moo <- create_multiOmicDataSet_from_dataframes(
+  sample_metadata = as.data.frame(nidap_sample_metadata),
+  counts_dat = as.data.frame(nidap_raw_counts)
+) |>
+  clean_raw_counts()
+```
+
+### filter
+
+```{r nidap_filter}
+moo <- moo |>
+  filter_counts(group_colname = "Group")
+```
+
+### normalize
+
+```{r nidap_norm}
+moo <- moo |>
+  normalize_counts(group_colname = "Group")
+```
+
+### batch correct
+
+```{r nidap_batch}
+moo <- moo |>
+  batch_correct_counts(
+    covariates_colname = "Group",
+    batch_colname = "Batch",
+    label_colname = "Label"
+  )
+```
+
+### differential expression
+
+```{r diff_counts}
+moo <- moo |>
+  diff_counts(
+    count_type = "filt",
+    covariates_colnames = c("Group", "Batch"),
+    contrast_colname = c("Group"),
+    contrasts = c("B-A", "C-A", "B-C"),
+    input_in_log_counts = FALSE,
+    return_mean_and_sd = FALSE,
+    voom_normalization_method = "quantile",
+  )
+```
+
+### filter differential features
+
+```{r filter_diff}
+moo <- moo |> filter_diff()
+```
+
+## Customize plots
+
+TODO
+
+- show how to use individual plotting functions
+- how to customize & override default color palettes
+- how to customize ggplot objects
+
+### 3D PCA
+
+```{r pca_3D}
+plot_pca(
+  moo@counts$batch,
+  moo@sample_meta,
+  principal_components = c(1, 2, 3),
+  group_colname = "Group",
+  label_colname = "Label",
+  color_values = moo@analyses[["colors"]][["Group"]]
+)
+```
+
+### Expression Heatmap
+
+```{r expr_heatmap}
+heatmap_plot <- plot_expr_heatmap(
+  moo,
+  count_type = "norm",
+  sub_count_type = "voom"
+)
+print(heatmap_plot)
+```
+
+### Volcano
+
+#### Summary
+
+```{r volcano_summary}
+dat_volcano_summary <- moo@analyses$diff |>
+  join_dfs_wide() |>
+  plot_volcano_summary()
+
+head(dat_volcano_summary)
+```
+
+#### Enhanced
+
+```{r volcano_enhanced}
+dat_volcano_enhanced <- moo@analyses$diff |>
+  join_dfs_wide() |>
+  plot_volcano_enhanced()
+```
+
+
+### Venn Diagram
+
+```{r venn_diagram}
+venn_dat <- dat_volcano_summary |> plot_venn_diagram()
+head(venn_dat)
+```

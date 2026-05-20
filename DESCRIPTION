@@ -1,0 +1,92 @@
+Package: MOSuite
+Title: R package for differential multi-omics analysis
+Version: 0.3.1
+Authors@R: c(
+    person("Kelly", "Sovacool", , "kelly.sovacool@nih.gov", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-3283-829X")),
+    person("Philip", "Homan", , "philip.homan@nih.gov", role = "aut"),
+    person("Vishal", "Koparde", , "vishal.koparde@nih.gov", role = "aut",
+           comment = c(ORCID = "0000-0001-8978-8495")),
+    person("Samantha", "Chill", , "samantha.chill@nih.gov", role = "aut",
+           comment = c(ORCID = "0000-0002-8734-9875")),
+    person("T. Joshua", "Meyer", , "thomas.meyer@nih.gov", role = "ctb"),
+    person("CCR Collaborative Bioinformatics Resource", role = "cph")
+  )
+Description: Multi-Omics Suite provides a suite of functions to clean,
+    filter, batch-correct, normalize, visualize, and perform differential
+    analysis. While the package is designed for differential RNA-seq
+    analysis and multi-omics datasets, it can be used for any data
+    represented in a counts table. See the website for more information,
+    documentation, and examples at <https://ccbr.github.io/MOSuite/>.
+License: MIT + file LICENSE
+URL: https://github.com/CCBR/MOSuite, https://ccbr.github.io/MOSuite/
+BugReports: https://github.com/CCBR/MOSuite/issues
+Depends:
+    R (>= 4.0.0)
+Imports:
+    assertthat,
+    dendextend,
+    DESeq2,
+    dplyr,
+    edgeR,
+    ggplot2 (< 4.0.0),
+    glue,
+    htmlwidgets,
+    jsonlite,
+    limma,
+    matrixStats,
+    methods,
+    options,
+    plotly,
+    purrr,
+    reshape2,
+    rlang,
+    S7,
+    stats,
+    stringr,
+    tibble,
+    tidyr,
+    tidyselect
+Suggests:
+    amap,
+    argparse,
+    broom,
+    cffr,
+    colorspace,
+    ComplexHeatmap,
+    dendsort,
+    docopt,
+    EnhancedVolcano,
+    ggrepel,
+    gridExtra,
+    knitr,
+    lobstr,
+    patchwork,
+    plotrix,
+    RColorBrewer,
+    Rd2md,
+    readr,
+    rmarkdown,
+    roxygen2 (>= 8.0.0),
+    scales,
+    styler,
+    sva,
+    testthat (>= 3.0.0),
+    UpSetR,
+    usethis,
+    V8,
+    VennDiagram,
+    withr
+VignetteBuilder:
+    knitr
+biocViews:
+Config/Needs/dev: cffr, covr, here, lintr, pkgdown,
+    rcmdcheck, xml2
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
+RoxygenNote: 8.0.0
