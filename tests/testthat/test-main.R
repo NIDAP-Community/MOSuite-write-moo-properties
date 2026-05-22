@@ -51,7 +51,12 @@ prepare_main_and_mosuite <- function(repo_root, code_dir) {
     code_dir,
     recursive = TRUE
   )
-  stopifnot(copied_main, copied_run, copied_mosuite)
+  expect_true(copied_main, info = "Failed to copy code/main.R into test workspace")
+  expect_true(copied_run, info = "Failed to copy code/run into test workspace")
+  expect_true(
+    copied_mosuite,
+    info = "Failed to copy code/MOSuite subtree into test workspace"
+  )
   main_file <- file.path(code_dir, "main.R")
   load_all_call <- "devtools::load_all('/code/MOSuite')"
   main_lines <- readLines(main_file)
@@ -61,7 +66,10 @@ prepare_main_and_mosuite <- function(repo_root, code_dir) {
     main_lines,
     fixed = TRUE
   )
-  stopifnot(!identical(main_lines, updated_lines))
+  expect_false(
+    identical(main_lines, updated_lines),
+    info = "main.R patch failed: expected load_all('/code/MOSuite')"
+  )
   writeLines(updated_lines, main_file)
 }
 
