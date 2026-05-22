@@ -70,6 +70,19 @@ test_that("code/run executes successfully with default CLI arguments", {
     file.path(repo_root, "code", "run"),
     file.path(code_dir, "run")
   )
+  file.copy(
+    file.path(repo_root, "code", "MOSuite"),
+    code_dir,
+    recursive = TRUE
+  )
+  main_file <- file.path(code_dir, "main.R")
+  main_lines <- readLines(main_file)
+  main_lines <- gsub(
+    "devtools::load_all\\('/code/MOSuite'\\)",
+    "devtools::load_all('MOSuite')",
+    main_lines
+  )
+  writeLines(main_lines, main_file)
 
   # Run the script from code directory
   old_wd <- getwd()
@@ -125,6 +138,19 @@ test_that("code/run executes with custom output directory argument", {
     file.path(repo_root, "code", "run"),
     file.path(code_dir, "run")
   )
+  file.copy(
+    file.path(repo_root, "code", "MOSuite"),
+    code_dir,
+    recursive = TRUE
+  )
+  main_file <- file.path(code_dir, "main.R")
+  main_lines <- readLines(main_file)
+  main_lines <- gsub(
+    "devtools::load_all\\('/code/MOSuite'\\)",
+    "devtools::load_all('MOSuite')",
+    main_lines
+  )
+  writeLines(main_lines, main_file)
 
   # Run the script from code directory
   old_wd <- getwd()
@@ -190,6 +216,19 @@ test_that("code/run creates readable property files from input data", {
     file.path(repo_root, "code", "run"),
     file.path(code_dir, "run")
   )
+  file.copy(
+    file.path(repo_root, "code", "MOSuite"),
+    code_dir,
+    recursive = TRUE
+  )
+  main_file <- file.path(code_dir, "main.R")
+  main_lines <- readLines(main_file)
+  main_lines <- gsub(
+    "devtools::load_all\\('/code/MOSuite'\\)",
+    "devtools::load_all('MOSuite')",
+    main_lines
+  )
+  writeLines(main_lines, main_file)
 
   # Run the script from code directory
   old_wd <- getwd()
