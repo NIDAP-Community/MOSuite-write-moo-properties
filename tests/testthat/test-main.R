@@ -73,8 +73,12 @@ prepare_main_and_mosuite <- function(repo_root, code_dir) {
     main_lines
   )
   expect_false(
-    identical(main_lines, updated_lines),
-    info = "main.R patch failed: no changes detected during load_all replacement"
+    any(grepl(load_all_pattern, updated_lines)),
+    info = "main.R patch failed: original /code/MOSuite load_all call still present"
+  )
+  expect_true(
+    any(grepl("devtools::load_all\\('MOSuite'\\)", updated_lines)),
+    info = "main.R patch failed: expected local MOSuite load_all call"
   )
   writeLines(updated_lines, main_file)
 }
