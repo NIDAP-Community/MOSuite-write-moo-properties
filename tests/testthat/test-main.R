@@ -61,17 +61,20 @@ prepare_main_and_mosuite <- function(repo_root, code_dir) {
     info = "Failed to copy code/MOSuite subtree into test workspace"
   )
   main_file <- file.path(code_dir, "main.R")
-  load_all_call <- "devtools::load_all('/code/MOSuite')"
+  load_all_pattern <- "devtools::load_all\\(\\s*['\\\"]/code/MOSuite['\\\"]\\s*\\)"
   main_lines <- readLines(main_file)
+  expect_true(
+    any(grepl(load_all_pattern, main_lines)),
+    info = "main.R patch failed: expected to find load_all('/code/MOSuite')"
+  )
   updated_lines <- gsub(
-    load_all_call,
+    load_all_pattern,
     "devtools::load_all('MOSuite')",
-    main_lines,
-    fixed = TRUE
+    main_lines
   )
   expect_false(
     identical(main_lines, updated_lines),
-    info = "main.R patch failed: expected load_all('/code/MOSuite')"
+    info = "main.R patch failed: no changes detected during load_all replacement"
   )
   writeLines(updated_lines, main_file)
 }
