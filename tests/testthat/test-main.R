@@ -38,27 +38,31 @@ assert_properties_output <- function(output_dir, label = "") {
 }
 
 prepare_main_and_mosuite <- function(repo_root, code_dir) {
-  file.copy(
+  copied_main <- file.copy(
     file.path(repo_root, "code", "main.R"),
     file.path(code_dir, "main.R")
   )
-  file.copy(
+  copied_run <- file.copy(
     file.path(repo_root, "code", "run"),
     file.path(code_dir, "run")
   )
-  file.copy(
+  copied_mosuite <- file.copy(
     file.path(repo_root, "code", "MOSuite"),
     code_dir,
     recursive = TRUE
   )
+  stopifnot(copied_main, copied_run, copied_mosuite)
   main_file <- file.path(code_dir, "main.R")
+  load_all_call <- "devtools::load_all('/code/MOSuite')"
   main_lines <- readLines(main_file)
-  main_lines <- gsub(
-    "devtools::load_all\\('/code/MOSuite'\\)",
+  updated_lines <- gsub(
+    load_all_call,
     "devtools::load_all('MOSuite')",
-    main_lines
+    main_lines,
+    fixed = TRUE
   )
-  writeLines(main_lines, main_file)
+  stopifnot(!identical(main_lines, updated_lines))
+  writeLines(updated_lines, main_file)
 }
 
 test_that("code/run executes successfully with default CLI arguments", {
