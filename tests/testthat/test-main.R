@@ -51,7 +51,10 @@ prepare_main_and_mosuite <- function(repo_root, code_dir) {
     code_dir,
     recursive = TRUE
   )
-  expect_true(copied_main, info = "Failed to copy code/main.R into test workspace")
+  expect_true(
+    copied_main,
+    info = "Failed to copy code/main.R into test workspace"
+  )
   expect_true(copied_run, info = "Failed to copy code/run into test workspace")
   expect_true(
     copied_mosuite,
