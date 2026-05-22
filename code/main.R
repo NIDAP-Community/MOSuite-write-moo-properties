@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 library(argparse)
 library(glue)
-library(MOSuite)
+devtools::load_all('/code/MOSuite')
 
 # set up capsule environment
 setup_capsule_environment()

@@ -1,0 +1,60 @@
+---
+title: "Introduction to MultiOmicsSuite"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{intro}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+options(rmarkdown.html_vignette.check_title = FALSE)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MOSuite)
+library(dplyr)
+```
+
+```{r nidap_data}
+options(moo_print_plots = TRUE)
+
+moo_nidap <- create_multiOmicDataSet_from_dataframes(
+  sample_metadata = as.data.frame(nidap_sample_metadata),
+  counts_dat = as.data.frame(nidap_raw_counts)
+) |>
+  clean_raw_counts() |>
+  filter_counts(group_colname = "Group") |>
+  normalize_counts(group_colname = "Group") |>
+  batch_correct_counts(
+    covariates_colname = "Group",
+    batch_colname = "Batch",
+    label_colname = "Label"
+  ) |>
+  diff_counts(
+    count_type = "filt",
+    covariates_colnames = c("Group", "Batch"),
+    contrast_colname = c("Group"),
+    contrasts = c("B-A", "C-A", "B-C"),
+    input_in_log_counts = FALSE,
+    return_mean_and_sd = FALSE,
+    voom_normalization_method = "quantile",
+  ) |>
+  filter_diff()
+
+moo_nidap@analyses$diff |>
+  join_dfs_wide() |>
+  head()
+
+moo_nidap@analyses$diff_filt |> head()
+```
+
+## The multiOmicDataSet object structure
+
+```{r str_moo}
+str(moo_nidap)
+```

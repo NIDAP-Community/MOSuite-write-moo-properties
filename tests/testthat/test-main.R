@@ -37,6 +37,52 @@ assert_properties_output <- function(output_dir, label = "") {
   )
 }
 
+prepare_main_and_mosuite <- function(repo_root, code_dir) {
+  copied_main <- file.copy(
+    file.path(repo_root, "code", "main.R"),
+    file.path(code_dir, "main.R")
+  )
+  copied_run <- file.copy(
+    file.path(repo_root, "code", "run"),
+    file.path(code_dir, "run")
+  )
+  copied_mosuite <- file.copy(
+    file.path(repo_root, "code", "MOSuite"),
+    code_dir,
+    recursive = TRUE
+  )
+  expect_true(
+    copied_main,
+    info = "Failed to copy code/main.R into test workspace"
+  )
+  expect_true(copied_run, info = "Failed to copy code/run into test workspace")
+  expect_true(
+    copied_mosuite,
+    info = "Failed to copy code/MOSuite subtree into test workspace"
+  )
+  main_file <- file.path(code_dir, "main.R")
+  load_all_pattern <- "devtools::load_all\\(\\s*['\\\"]/code/MOSuite['\\\"]\\s*\\)"
+  main_lines <- readLines(main_file)
+  expect_true(
+    any(grepl(load_all_pattern, main_lines)),
+    info = "main.R does not contain expected load_all('/code/MOSuite')"
+  )
+  updated_lines <- gsub(
+    load_all_pattern,
+    "devtools::load_all('MOSuite')",
+    main_lines
+  )
+  expect_false(
+    any(grepl(load_all_pattern, updated_lines)),
+    info = "main.R patch failed: original /code/MOSuite load_all call still present"
+  )
+  expect_true(
+    any(grepl("devtools::load_all\\('MOSuite'\\)", updated_lines)),
+    info = "main.R patch failed: expected local MOSuite load_all call"
+  )
+  writeLines(updated_lines, main_file)
+}
+
 test_that("code/run executes successfully with default CLI arguments", {
   # Create temporary workspace
   workspace <- tempfile("mosuite_write_moo_props_test_")
@@ -62,14 +108,7 @@ test_that("code/run executes successfully with default CLI arguments", {
   file.copy(test_data_file, file.path(data_dir, "moo.rds"))
 
   # Copy main.R and run script to workspace
-  file.copy(
-    file.path(repo_root, "code", "main.R"),
-    file.path(code_dir, "main.R")
-  )
-  file.copy(
-    file.path(repo_root, "code", "run"),
-    file.path(code_dir, "run")
-  )
+  prepare_main_and_mosuite(repo_root, code_dir)
 
   # Run the script from code directory
   old_wd <- getwd()
@@ -117,14 +156,7 @@ test_that("code/run executes with custom output directory argument", {
   file.copy(test_data_file, file.path(data_dir, "moo.rds"))
 
   # Copy main.R and run script to workspace
-  file.copy(
-    file.path(repo_root, "code", "main.R"),
-    file.path(code_dir, "main.R")
-  )
-  file.copy(
-    file.path(repo_root, "code", "run"),
-    file.path(code_dir, "run")
-  )
+  prepare_main_and_mosuite(repo_root, code_dir)
 
   # Run the script from code directory
   old_wd <- getwd()
@@ -182,14 +214,7 @@ test_that("code/run creates readable property files from input data", {
   file.copy(test_data_file, file.path(data_dir, "moo.rds"))
 
   # Copy main.R and run script to workspace
-  file.copy(
-    file.path(repo_root, "code", "main.R"),
-    file.path(code_dir, "main.R")
-  )
-  file.copy(
-    file.path(repo_root, "code", "run"),
-    file.path(code_dir, "run")
-  )
+  prepare_main_and_mosuite(repo_root, code_dir)
 
   # Run the script from code directory
   old_wd <- getwd()
