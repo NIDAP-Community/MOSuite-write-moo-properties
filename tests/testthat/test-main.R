@@ -65,7 +65,7 @@ prepare_main_and_mosuite <- function(repo_root, code_dir) {
   main_lines <- readLines(main_file)
   expect_true(
     any(grepl(load_all_pattern, main_lines)),
-    info = "main.R patch failed: expected to find load_all('/code/MOSuite')"
+    info = "main.R does not contain expected load_all('/code/MOSuite')"
   )
   updated_lines <- gsub(
     load_all_pattern,
