@@ -1,14 +1,61 @@
+test_that("main.R keeps expected CLI and output wiring contract", {
+  main_lines <- readLines(file.path(test_path("..", ".."), "code", "main.R"))
+  main_text <- paste(main_lines, collapse = "\n")
+
+  expect_equal(
+    length(grep(
+      'parser\\$add_argument\\(\\s*"--output_dir"',
+      main_text,
+      perl = TRUE
+    )),
+    1,
+    info = "main.R should expose exactly one --output_dir argument"
+  )
+  expect_match(main_text, 'default = "moo-properties"')
+  expect_match(
+    main_text,
+    'output_path <- file\\.path\\("\\.\\.", "results", args\\$output_dir\\)'
+  )
+  expect_match(
+    main_text,
+    'write_multiOmicDataSet_properties\\(moo, output_dir = output_path\\)'
+  )
+})
+
+test_that("run wrapper prepares results directories and forwards CLI args", {
+  run_text <- paste(
+    readLines(file.path(test_path("..", ".."), "code", "run")),
+    collapse = "\n"
+  )
+
+  expect_match(
+    run_text,
+    'mkdir -p ../results/figures ../results/moo',
+    fixed = TRUE
+  )
+  expect_match(run_text, 'Rscript main.R "$@"', fixed = TRUE)
+})
+
 test_that("code/run executes successfully with default CLI arguments", {
   setup <- setup_cli_workspace("mosuite_write_moo_props_test_")
   on.exit(unlink(setup$workspace, recursive = TRUE), add = TRUE)
 
-  test_data_file <- file.path(setup$repo_root, "tests", "data", "moo-diff-filt.rds")
+  test_data_file <- file.path(
+    setup$repo_root,
+    "tests",
+    "data",
+    "moo-diff-filt.rds"
+  )
 
   expect_true(
     file.exists(test_data_file),
     info = paste("Test data file should exist at", test_data_file)
   )
-  file.copy(test_data_file, file.path(setup$data_dir, "moo.rds"), overwrite = TRUE)
+  file.copy(
+    test_data_file,
+    file.path(setup$data_dir, "moo.rds"),
+    overwrite = TRUE
+  )
 
   prepare_main_and_mosuite(setup$repo_root, setup$code_dir)
 
@@ -32,9 +79,18 @@ test_that("code/run executes with custom output directory argument", {
   setup <- setup_cli_workspace("mosuite_write_moo_props_custom_test_")
   on.exit(unlink(setup$workspace, recursive = TRUE), add = TRUE)
 
-  test_data_file <- file.path(setup$repo_root, "tests", "data", "moo-diff-filt.rds")
+  test_data_file <- file.path(
+    setup$repo_root,
+    "tests",
+    "data",
+    "moo-diff-filt.rds"
+  )
 
-  file.copy(test_data_file, file.path(setup$data_dir, "moo.rds"), overwrite = TRUE)
+  file.copy(
+    test_data_file,
+    file.path(setup$data_dir, "moo.rds"),
+    overwrite = TRUE
+  )
 
   prepare_main_and_mosuite(setup$repo_root, setup$code_dir)
 
@@ -70,10 +126,19 @@ test_that("code/run creates readable property files from input data", {
   setup <- setup_cli_workspace("mosuite_write_moo_props_validation_test_")
   on.exit(unlink(setup$workspace, recursive = TRUE), add = TRUE)
 
-  test_data_file <- file.path(setup$repo_root, "tests", "data", "moo-diff-filt.rds")
+  test_data_file <- file.path(
+    setup$repo_root,
+    "tests",
+    "data",
+    "moo-diff-filt.rds"
+  )
 
   input_moo <- readr::read_rds(test_data_file)
-  file.copy(test_data_file, file.path(setup$data_dir, "moo.rds"), overwrite = TRUE)
+  file.copy(
+    test_data_file,
+    file.path(setup$data_dir, "moo.rds"),
+    overwrite = TRUE
+  )
 
   prepare_main_and_mosuite(setup$repo_root, setup$code_dir)
 
@@ -88,9 +153,18 @@ test_that("code/run creates readable property files from input data", {
     S7::S7_inherits(input_moo, MOSuite::multiOmicDataSet),
     info = "Input should be a multiOmicDataSet object"
   )
-  expect_true(nrow(input_moo@sample_meta) > 0, info = "Input MOO should have sample metadata")
-  expect_true(nrow(input_moo@annotation) > 0, info = "Input MOO should have annotation data")
-  expect_true(length(input_moo@counts) > 0, info = "Input MOO should have count data")
+  expect_true(
+    nrow(input_moo@sample_meta) > 0,
+    info = "Input MOO should have sample metadata"
+  )
+  expect_true(
+    nrow(input_moo@annotation) > 0,
+    info = "Input MOO should have annotation data"
+  )
+  expect_true(
+    length(input_moo@counts) > 0,
+    info = "Input MOO should have count data"
+  )
 
   output_dir <- file.path(setup$results_dir, "moo-properties")
   assert_properties_output(output_dir)
@@ -104,6 +178,11 @@ test_that("code/run creates readable property files from input data", {
     nrow(input_moo@sample_meta),
     info = "Written sample metadata should have same number of rows as input"
   )
+  expect_equal(
+    colnames(written_sample_meta),
+    colnames(input_moo@sample_meta),
+    info = "Written sample metadata should preserve input column names"
+  )
 
   written_annotation <- readr::read_csv(
     file.path(output_dir, "feature_annotation.csv"),
@@ -113,5 +192,10 @@ test_that("code/run creates readable property files from input data", {
     nrow(written_annotation),
     nrow(input_moo@annotation),
     info = "Written annotation should have same number of rows as input"
+  )
+  expect_equal(
+    colnames(written_annotation),
+    colnames(input_moo@annotation),
+    info = "Written annotation should preserve input column names"
   )
 })
