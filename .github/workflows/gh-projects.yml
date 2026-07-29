@@ -37,9 +37,9 @@ jobs:
         with:
           project-url: https://github.com/orgs/CCBR/projects/32
           github-token: ${{ steps.generate-token.outputs.token }}
+
   NIDAP-projects:
     runs-on: ubuntu-latest
-    if: github.event_name == 'issues'
     steps:
       - name: Generate a token
         id: generate-token
@@ -51,6 +51,14 @@ jobs:
 
       - name: add to NIDAP MOSuite project
         uses: actions/add-to-project@v1.0.2
+        if: github.event_name == 'issues'
         with:
           project-url: https://github.com/orgs/NIDAP-Community/projects/3
+          github-token: ${{ steps.generate-token.outputs.token }}
+
+      - name: add to syncweaver-orchestrator project
+        uses: actions/add-to-project@v2
+        if: github.event_name == 'pull_request'
+        with:
+          project-url: https://github.com/orgs/NIDAP-Community/projects/4
           github-token: ${{ steps.generate-token.outputs.token }}
