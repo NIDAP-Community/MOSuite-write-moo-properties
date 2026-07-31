@@ -1,5 +1,9 @@
 # Code Ocean capsule - MOSuite - write multiOmicDataSet properties
 
+## Development version
+
+- Update the embedded MOSuite package source used by the capsule (#6, @phoman14).
+
 ## v2.0
 
 - The MOSuite package is now available in `code/MOSuite`. (#2)
