@@ -3,7 +3,6 @@ name: auto-format
 on:
   workflow_dispatch:
   pull_request:
-    branches: [ main, master ]
 
 permissions:
   contents: write
@@ -26,7 +25,7 @@ jobs:
           private-key: ${{ secrets.CCBR_BOT_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           token: ${{ steps.generate-token.outputs.token }}
           fetch-depth: 0
@@ -40,19 +39,13 @@ jobs:
 
       - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: '4.5'
+          r-version: "4.5"
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: local::.
           needs: dev
-
-      - name: update Galaxy blueprints
-        shell: Rscript {0}
-        run: |
-          source('inst/extdata/galaxy/galaxy.R')
-          write_package_json_blueprints()
 
       - name: render README.Rmd & docs
         shell: Rscript {0}
