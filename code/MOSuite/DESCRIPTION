@@ -1,6 +1,6 @@
 Package: MOSuite
 Title: R package for differential multi-omics analysis
-Version: 0.3.2
+Version: 0.4.0.9000
 Authors@R: c(
     person("Kelly", "Sovacool", , "kelly.sovacool@nih.gov", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3283-829X")),
@@ -22,15 +22,17 @@ License: MIT + file LICENSE
 URL: https://github.com/CCBR/MOSuite, https://ccbr.github.io/MOSuite/
 BugReports: https://github.com/CCBR/MOSuite/issues
 Depends:
-    R (>= 4.0.0)
+    R (>= 4.1.0)
 Imports:
     assertthat,
+    cli,
     dendextend,
     DESeq2,
     dplyr,
     edgeR,
     ggplot2,
     glue,
+    grid,
     htmlwidgets,
     jsonlite,
     limma,
@@ -63,6 +65,7 @@ Suggests:
     lobstr,
     patchwork,
     plotrix,
+    quarto,
     RColorBrewer,
     Rd2md,
     readr,
@@ -82,11 +85,11 @@ VignetteBuilder:
 biocViews:
 Config/Needs/dev: cffr, covr, here, lintr, pkgdown,
     rcmdcheck, xml2
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-Config/roxygen2/version: 8.0.0
 RoxygenNote: 8.0.0
