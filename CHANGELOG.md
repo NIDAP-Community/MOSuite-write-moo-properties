@@ -2,7 +2,7 @@
 
 ## Development version
 
-- Update the embedded MOSuite package source used by the capsule to MOSuite v0.4.1 (#6, @phoman14).
+- Use MOSuite v0.4.1 and update app-panel (#6, @phoman14).
 
 ## v2.0
 
