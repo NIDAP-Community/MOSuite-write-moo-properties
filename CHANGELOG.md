@@ -1,5 +1,9 @@
 # Code Ocean capsule - MOSuite - write multiOmicDataSet properties
 
+## Development version
+
+- Use MOSuite v0.4.1 and update app-panel (#6, #7, @phoman14).
+
 ## v2.0
 
 - The MOSuite package is now available in `code/MOSuite`. (#2)
