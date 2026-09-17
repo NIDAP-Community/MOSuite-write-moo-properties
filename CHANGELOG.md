@@ -2,6 +2,8 @@
 
 ## Development version
 
+## v3.0
+
 - Use MOSuite v0.5.0. (#9, @kelly-sovacool)
 - Update app-panel. (#6, #7, @phoman14)
 
