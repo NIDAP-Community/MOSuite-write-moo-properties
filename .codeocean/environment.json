@@ -1,6 +1,6 @@
 {
 	"version": 1,
-	"base_image": "codeocean/mosuite-minimal:v0.3.2",
+	"base_image": "codeocean/mosuite-minimal:v0.5.0",
 	"options": {
 		"registry_host_arg": true,
 		"git_ask_pass": true,
