@@ -8,7 +8,7 @@ message: 'To cite package "MOSuite" in publications use:'
 type: software
 license: MIT
 title: 'MOSuite: R package for differential multi-omics analysis'
-version: 0.5.0
+version: 0.5.1
 doi: 10.5281/zenodo.16371580
 identifiers:
 - description: Archived snapshots of all versions
@@ -35,6 +35,9 @@ authors:
   given-names: Samantha
   email: samantha.chill@nih.gov
   orcid: https://orcid.org/0000-0002-8734-9875
+- family-names: Meyer
+  given-names: T. Joshua
+  email: thomas.meyer@nih.gov
 preferred-citation:
   type: manual
   title: 'MOSuite: R package for differential multi-omics analysis'
@@ -80,19 +83,17 @@ references:
   doi: 10.32614/R.manuals
   version: '>= 4.1.0'
 - type: software
-  title: assertthat
-  abstract: 'assertthat: Easy Pre and Post Assertions'
+  title: 'assertthat: Easy Pre and Post Assertions'
   notes: Imports
   repository: https://CRAN.R-project.org/package=assertthat
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2026'
+  year: '2019'
   doi: 10.32614/CRAN.package.assertthat
 - type: software
-  title: cli
-  abstract: 'cli: Helpers for Developing Command Line Interfaces'
+  title: 'cli: Helpers for Developing Command Line Interfaces'
   notes: Imports
   url: https://cli.r-lib.org
   repository: https://CRAN.R-project.org/package=cli
@@ -103,8 +104,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.cli
 - type: software
-  title: dendextend
-  abstract: 'dendextend: Extending ''dendrogram'' Functionality in R'
+  title: 'dendextend: Extending ''dendrogram'' Functionality in R'
   notes: Imports
   url: https://talgalili.github.io/dendextend/
   repository: https://CRAN.R-project.org/package=dendextend
@@ -115,11 +115,10 @@ references:
   - family-names: Jefferis
     given-names: Gregory
     email: jefferis@gmail.com
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.dendextend
 - type: software
-  title: DESeq2
-  abstract: 'DESeq2: Differential gene expression analysis based on the negative binomial
+  title: 'DESeq2: Differential gene expression analysis based on the negative binomial
     distribution'
   notes: Imports
   url: https://github.com/thelovelab/DESeq2
@@ -135,8 +134,7 @@ references:
   year: '2026'
   doi: 10.18129/B9.bioc.DESeq2
 - type: software
-  title: dplyr
-  abstract: 'dplyr: A Grammar of Data Manipulation'
+  title: 'dplyr: A Grammar of Data Manipulation'
   notes: Imports
   url: https://dplyr.tidyverse.org
   repository: https://CRAN.R-project.org/package=dplyr
@@ -160,8 +158,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.dplyr
 - type: software
-  title: edgeR
-  abstract: 'edgeR: Empirical Analysis of Digital Gene Expression Data in R'
+  title: 'edgeR: Empirical Analysis of Digital Gene Expression Data in R'
   notes: Imports
   url: https://bioinf.wehi.edu.au/edgeR/
   repository: https://bioconductor.org/
@@ -191,8 +188,7 @@ references:
   year: '2026'
   doi: 10.18129/B9.bioc.edgeR
 - type: software
-  title: ggplot2
-  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  title: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
   notes: Imports
   url: https://ggplot2.tidyverse.org
   repository: https://CRAN.R-project.org/package=ggplot2
@@ -231,8 +227,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.ggplot2
 - type: software
-  title: glue
-  abstract: 'glue: Interpreted String Literals'
+  title: 'glue: Interpreted String Literals'
   notes: Imports
   url: https://glue.tidyverse.org/
   repository: https://CRAN.R-project.org/package=glue
@@ -247,8 +242,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.glue
 - type: software
-  title: grid
-  abstract: 'R: A Language and Environment for Statistical Computing'
+  title: 'R: A Language and Environment for Statistical Computing'
   notes: Imports
   authors:
   - name: R Core Team
@@ -260,8 +254,7 @@ references:
   year: '2026'
   doi: 10.32614/R.manuals
 - type: software
-  title: htmlwidgets
-  abstract: 'htmlwidgets: HTML Widgets for R'
+  title: 'htmlwidgets: HTML Widgets for R'
   notes: Imports
   url: https://github.com/ramnathv/htmlwidgets
   repository: https://CRAN.R-project.org/package=htmlwidgets
@@ -281,11 +274,10 @@ references:
     orcid: https://orcid.org/0000-0002-4958-2844
   - family-names: Russell
     given-names: Kenton
-  year: '2026'
+  year: '2023'
   doi: 10.32614/CRAN.package.htmlwidgets
 - type: software
-  title: jsonlite
-  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  title: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
   notes: Imports
   url: https://jeroen.r-universe.dev/jsonlite
   repository: https://CRAN.R-project.org/package=jsonlite
@@ -294,11 +286,10 @@ references:
     given-names: Jeroen
     email: jeroenooms@gmail.com
     orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.jsonlite
 - type: software
-  title: limma
-  abstract: 'limma: Linear Models for Microarray and Omics Data'
+  title: 'limma: Linear Models for Microarray and Omics Data'
   notes: Imports
   url: https://bioinf.wehi.edu.au/limma/
   repository: https://bioconductor.org/
@@ -310,9 +301,8 @@ references:
   year: '2026'
   doi: 10.18129/B9.bioc.limma
 - type: software
-  title: matrixStats
-  abstract: 'matrixStats: Functions that Apply to Rows and Columns of Matrices (and
-    to Vectors)'
+  title: 'matrixStats: Functions that Apply to Rows and Columns of Matrices (and to
+    Vectors)'
   notes: Imports
   url: https://github.com/HenrikBengtsson/matrixStats
   repository: https://CRAN.R-project.org/package=matrixStats
@@ -320,24 +310,10 @@ references:
   - family-names: Bengtsson
     given-names: Henrik
     email: henrikb@braju.com
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.matrixStats
 - type: software
-  title: methods
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-    website: https://ror.org/02zz1nj61
-  institution:
-    name: R Foundation for Statistical Computing
-    website: https://ror.org/05qewa988
-    address: Vienna, Austria
-  year: '2026'
-  doi: 10.32614/R.manuals
-- type: software
-  title: MOObject
-  abstract: 'MOObject: multiOmicDataSet object class for MOSuite'
+  title: 'MOObject: multiOmicDataSet object class for MOSuite'
   notes: Imports
   url: https://ccbr.github.io/MOObject/
   authors:
@@ -355,8 +331,7 @@ references:
   year: '2026'
   version: '>= 0.5.0'
 - type: software
-  title: options
-  abstract: 'options: Simple, Consistent Package Options'
+  title: 'options: Simple, Consistent Package Options'
   notes: Imports
   url: https://dgkf.github.io/options/
   repository: https://CRAN.R-project.org/package=options
@@ -364,11 +339,10 @@ references:
   - family-names: Kelkhoff
     given-names: Doug
     email: doug.kelkhoff@gmail.com
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.options
 - type: software
-  title: plotly
-  abstract: 'plotly: Create Interactive Web Graphics via ''plotly.js'''
+  title: 'plotly: Create Interactive Web Graphics via ''plotly.js'''
   notes: Imports
   url: https://plotly-r.com
   repository: https://CRAN.R-project.org/package=plotly
@@ -399,8 +373,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.plotly
 - type: software
-  title: purrr
-  abstract: 'purrr: Functional Programming Tools'
+  title: 'purrr: Functional Programming Tools'
   notes: Imports
   url: https://purrr.tidyverse.org/
   repository: https://CRAN.R-project.org/package=purrr
@@ -415,8 +388,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.purrr
 - type: software
-  title: reshape2
-  abstract: 'reshape2: Flexibly Reshape Data: A Reboot of the Reshape Package'
+  title: 'reshape2: Flexibly Reshape Data: A Reboot of the Reshape Package'
   notes: Imports
   url: https://github.com/hadley/reshape
   repository: https://CRAN.R-project.org/package=reshape2
@@ -424,11 +396,10 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.reshape2
 - type: software
-  title: rlang
-  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  title: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
   notes: Imports
   url: https://rlang.r-lib.org
   repository: https://CRAN.R-project.org/package=rlang
@@ -442,8 +413,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rlang
 - type: software
-  title: S7
-  abstract: 'S7: An Object Oriented System Meant to Become a Successor to S3 and S4'
+  title: 'S7: An Object Oriented System Meant to Become a Successor to S3 and S4'
   notes: Imports
   url: https://rconsortium.github.io/S7/
   repository: https://CRAN.R-project.org/package=S7
@@ -471,21 +441,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.S7
 - type: software
-  title: stats
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-    website: https://ror.org/02zz1nj61
-  institution:
-    name: R Foundation for Statistical Computing
-    website: https://ror.org/05qewa988
-    address: Vienna, Austria
-  year: '2026'
-  doi: 10.32614/R.manuals
-- type: software
-  title: stringr
-  abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
+  title: 'stringr: Simple, Consistent Wrappers for Common String Operations'
   notes: Imports
   url: https://stringr.tidyverse.org
   repository: https://CRAN.R-project.org/package=stringr
@@ -493,11 +449,10 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.stringr
 - type: software
-  title: tibble
-  abstract: 'tibble: Simple Data Frames'
+  title: 'tibble: Simple Data Frames'
   notes: Imports
   url: https://tibble.tidyverse.org/
   repository: https://CRAN.R-project.org/package=tibble
@@ -512,8 +467,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.tibble
 - type: software
-  title: tidyr
-  abstract: 'tidyr: Tidy Messy Data'
+  title: 'tidyr: Tidy Messy Data'
   notes: Imports
   url: https://tidyr.tidyverse.org
   repository: https://CRAN.R-project.org/package=tidyr
@@ -526,11 +480,10 @@ references:
     email: davis@posit.co
   - family-names: Girlich
     given-names: Maximilian
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.tidyr
 - type: software
-  title: tidyselect
-  abstract: 'tidyselect: Select from a Set of Strings'
+  title: 'tidyselect: Select from a Set of Strings'
   notes: Imports
   url: https://tidyselect.r-lib.org
   repository: https://CRAN.R-project.org/package=tidyselect
@@ -541,22 +494,20 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2026'
+  year: '2024'
   doi: 10.32614/CRAN.package.tidyselect
 - type: software
-  title: amap
-  abstract: 'amap: Another Multidimensional Analysis Package'
+  title: 'amap: Another Multidimensional Analysis Package'
   notes: Suggests
   repository: https://CRAN.R-project.org/package=amap
   authors:
   - family-names: Lucas
     given-names: Antoine
     email: antoinelucas@gmail.com
-  year: '2026'
+  year: '2024'
   doi: 10.32614/CRAN.package.amap
 - type: software
-  title: argparse
-  abstract: 'argparse: Command Line Optional and Positional Argument Parser'
+  title: 'argparse: Command Line Optional and Positional Argument Parser'
   notes: Suggests
   url: https://trevorldavis.com/R/argparse/
   repository: https://CRAN.R-project.org/package=argparse
@@ -568,8 +519,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.argparse
 - type: software
-  title: broom
-  abstract: 'broom: Convert Statistical Objects into Tidy Tibbles'
+  title: 'broom: Convert Statistical Objects into Tidy Tibbles'
   notes: Suggests
   url: https://broom.tidymodels.org/
   repository: https://CRAN.R-project.org/package=broom
@@ -592,8 +542,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.broom
 - type: software
-  title: cffr
-  abstract: 'cffr: Generate Citation File Format (''CFF'') Metadata'
+  title: 'cffr: Generate Citation File Format (''CFF'') Metadata'
   notes: Suggests
   url: https://docs.ropensci.org/cffr/
   repository: https://CRAN.R-project.org/package=cffr
@@ -605,10 +554,9 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.cffr
 - type: software
-  title: colorspace
-  abstract: 'colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes'
+  title: 'colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes'
   notes: Suggests
-  url: https://colorspace.R-Forge.R-project.org/
+  url: https://zeileis.codeberg.page/colorspace/
   repository: https://CRAN.R-project.org/package=colorspace
   authors:
   - family-names: Ihaka
@@ -645,8 +593,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.colorspace
 - type: software
-  title: ComplexHeatmap
-  abstract: 'ComplexHeatmap: Make Complex Heatmaps'
+  title: 'ComplexHeatmap: Make Complex Heatmaps'
   notes: Suggests
   url: https://jokergoo.github.io/ComplexHeatmap-reference/book/
   repository: https://bioconductor.org/
@@ -658,8 +605,7 @@ references:
   year: '2026'
   doi: 10.18129/B9.bioc.ComplexHeatmap
 - type: software
-  title: dendsort
-  abstract: 'dendsort: Modular Leaf Ordering Methods for Dendrogram Nodes'
+  title: 'dendsort: Modular Leaf Ordering Methods for Dendrogram Nodes'
   notes: Suggests
   url: https://github.com/evanbiederstedt/dendsort
   repository: https://CRAN.R-project.org/package=dendsort
@@ -670,11 +616,10 @@ references:
   - family-names: Biederstedt
     given-names: Evan
     email: evan.biederstedt@gmail.com
-  year: '2026'
+  year: '2021'
   doi: 10.32614/CRAN.package.dendsort
 - type: software
-  title: docopt
-  abstract: 'docopt: Command-Line Interface Specification Language'
+  title: 'docopt: Command-Line Interface Specification Language'
   notes: Suggests
   url: https://github.com/docopt/docopt.R
   repository: https://CRAN.R-project.org/package=docopt
@@ -684,11 +629,10 @@ references:
     name-particle: de
     email: edwindjonge@gmail.com
     orcid: https://orcid.org/0000-0002-6580-4718
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.docopt
 - type: software
-  title: EnhancedVolcano
-  abstract: 'EnhancedVolcano: Publication-ready volcano plots with enhanced colouring
+  title: 'EnhancedVolcano: Publication-ready volcano plots with enhanced colouring
     and labeling'
   notes: Suggests
   url: https://github.com/kevinblighe/EnhancedVolcano
@@ -703,8 +647,7 @@ references:
   year: '2026'
   doi: 10.18129/B9.bioc.EnhancedVolcano
 - type: software
-  title: ggrepel
-  abstract: 'ggrepel: Automatically Position Non-Overlapping Text Labels with ''ggplot2'''
+  title: 'ggrepel: Automatically Position Non-Overlapping Text Labels with ''ggplot2'''
   notes: Suggests
   url: https://ggrepel.slowkow.com/
   repository: https://CRAN.R-project.org/package=ggrepel
@@ -716,8 +659,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.ggrepel
 - type: software
-  title: gridExtra
-  abstract: 'gridExtra: Miscellaneous Functions for "Grid" Graphics'
+  title: 'gridExtra: Miscellaneous Functions for "Grid" Graphics'
   notes: Suggests
   repository: https://CRAN.R-project.org/package=gridExtra
   authors:
@@ -727,8 +669,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.gridExtra
 - type: software
-  title: knitr
-  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  title: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
   url: https://yihui.org/knitr/
   repository: https://CRAN.R-project.org/package=knitr
@@ -740,8 +681,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
-  title: lobstr
-  abstract: 'lobstr: Visualize R Data Structures with Trees'
+  title: 'lobstr: Visualize R Data Structures with Trees'
   notes: Suggests
   url: https://lobstr.r-lib.org/
   repository: https://CRAN.R-project.org/package=lobstr
@@ -752,8 +692,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.lobstr
 - type: software
-  title: patchwork
-  abstract: 'patchwork: The Composer of Plots'
+  title: 'patchwork: The Composer of Plots'
   notes: Suggests
   url: https://patchwork.data-imaginist.com
   repository: https://CRAN.R-project.org/package=patchwork
@@ -762,11 +701,10 @@ references:
     given-names: Thomas Lin
     email: thomasp85@gmail.com
     orcid: https://orcid.org/0000-0002-5147-4711
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.patchwork
 - type: software
-  title: plotrix
-  abstract: 'plotrix: Various Plotting Functions'
+  title: 'plotrix: Various Plotting Functions'
   notes: Suggests
   url: https://plotrix.github.io/plotrix/
   repository: https://CRAN.R-project.org/package=plotrix
@@ -776,8 +714,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.plotrix
 - type: software
-  title: quarto
-  abstract: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
+  title: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
   notes: Suggests
   url: https://quarto-dev.github.io/quarto-r/
   repository: https://CRAN.R-project.org/package=quarto
@@ -790,22 +727,20 @@ references:
     given-names: Christophe
     email: cderv@posit.co
     orcid: https://orcid.org/0000-0003-4474-2498
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.quarto
 - type: software
-  title: RColorBrewer
-  abstract: 'RColorBrewer: ColorBrewer Palettes'
+  title: 'RColorBrewer: ColorBrewer Palettes'
   notes: Suggests
   repository: https://CRAN.R-project.org/package=RColorBrewer
   authors:
   - family-names: Neuwirth
     given-names: Erich
     email: erich.neuwirth@univie.ac.at
-  year: '2026'
+  year: '2022'
   doi: 10.32614/CRAN.package.RColorBrewer
 - type: software
-  title: Rd2md
-  abstract: 'Rd2md: Markdown Reference Manuals'
+  title: 'Rd2md: Markdown Reference Manuals'
   notes: Suggests
   url: https://github.com/quantsch/rd2md
   repository: https://CRAN.R-project.org/package=Rd2md
@@ -813,11 +748,10 @@ references:
   - family-names: Busch
     given-names: Julian
     email: jb@quants.ch
-  year: '2026'
+  year: '2024'
   doi: 10.32614/CRAN.package.Rd2md
 - type: software
-  title: readr
-  abstract: 'readr: Read Rectangular Text Data'
+  title: 'readr: Read Rectangular Text Data'
   notes: Suggests
   url: https://readr.tidyverse.org
   repository: https://CRAN.R-project.org/package=readr
@@ -834,8 +768,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.readr
 - type: software
-  title: rmarkdown
-  abstract: 'rmarkdown: Dynamic Documents for R'
+  title: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
   url: https://pkgs.rstudio.com/rmarkdown/
   repository: https://CRAN.R-project.org/package=rmarkdown
@@ -878,8 +811,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
-  title: roxygen2
-  abstract: 'roxygen2: In-Line Documentation for R'
+  title: 'roxygen2: In-Line Documentation for R'
   notes: Suggests
   url: https://roxygen2.r-lib.org/
   repository: https://CRAN.R-project.org/package=roxygen2
@@ -900,8 +832,7 @@ references:
   doi: 10.32614/CRAN.package.roxygen2
   version: '>= 8.0.0'
 - type: software
-  title: scales
-  abstract: 'scales: Scale Functions for Visualization'
+  title: 'scales: Scale Functions for Visualization'
   notes: Suggests
   url: https://scales.r-lib.org
   repository: https://CRAN.R-project.org/package=scales
@@ -915,11 +846,10 @@ references:
     orcid: https://orcid.org/0000-0002-5147-4711
   - family-names: Seidel
     given-names: Dana
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.scales
 - type: software
-  title: styler
-  abstract: 'styler: Non-Invasive Pretty Printing of R Code'
+  title: 'styler: Non-Invasive Pretty Printing of R Code'
   notes: Suggests
   url: https://styler.r-lib.org
   repository: https://CRAN.R-project.org/package=styler
@@ -935,11 +865,10 @@ references:
     given-names: Indrajeet
     email: patilindrajeet.science@gmail.com
     orcid: https://orcid.org/0000-0003-1995-6531
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.styler
 - type: software
-  title: sva
-  abstract: 'sva: Surrogate Variable Analysis'
+  title: 'sva: Surrogate Variable Analysis'
   notes: Suggests
   repository: https://bioconductor.org/
   authors:
@@ -970,8 +899,7 @@ references:
   year: '2026'
   doi: 10.18129/B9.bioc.sva
 - type: software
-  title: testthat
-  abstract: 'testthat: Unit Testing for R'
+  title: 'testthat: Unit Testing for R'
   notes: Suggests
   url: https://testthat.r-lib.org
   repository: https://CRAN.R-project.org/package=testthat
@@ -983,8 +911,7 @@ references:
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
-  title: UpSetR
-  abstract: 'UpSetR: A More Scalable Alternative to Venn and Euler Diagrams for Visualizing
+  title: 'UpSetR: A More Scalable Alternative to Venn and Euler Diagrams for Visualizing
     Intersecting Sets'
   notes: Suggests
   url: https://github.com/hms-dbmi/UpSetR
@@ -999,8 +926,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.UpSetR
 - type: software
-  title: usethis
-  abstract: 'usethis: Automate Package and Project Setup'
+  title: 'usethis: Automate Package and Project Setup'
   notes: Suggests
   url: https://usethis.r-lib.org
   repository: https://CRAN.R-project.org/package=usethis
@@ -1024,8 +950,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.usethis
 - type: software
-  title: V8
-  abstract: 'V8: Embedded JavaScript and WebAssembly Engine for R'
+  title: 'V8: Embedded JavaScript and WebAssembly Engine for R'
   notes: Suggests
   url: https://jeroen.r-universe.dev/V8
   repository: https://CRAN.R-project.org/package=V8
@@ -1037,8 +962,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.V8
 - type: software
-  title: VennDiagram
-  abstract: 'VennDiagram: Generate High-Resolution Venn and Euler Plots'
+  title: 'VennDiagram: Generate High-Resolution Venn and Euler Plots'
   notes: Suggests
   url: https://github.com/uclahs-cds/package-VennDiagram
   repository: https://CRAN.R-project.org/package=VennDiagram
@@ -1048,8 +972,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.VennDiagram
 - type: software
-  title: withr
-  abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'
+  title: 'withr: Run Code ''With'' Temporarily Modified Global State'
   notes: Suggests
   url: https://withr.r-lib.org
   repository: https://CRAN.R-project.org/package=withr
