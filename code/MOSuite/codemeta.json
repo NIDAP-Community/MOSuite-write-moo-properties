@@ -24,6 +24,11 @@
       "@type": "Person",
       "familyName": "Chill",
       "givenName": "Samantha"
+    },
+    {
+      "@type": "Person",
+      "familyName": "Meyer",
+      "givenName": "T. Joshua"
     }
   ],
   "codeRepository": "https://github.com/CCBR/MOSuite",
@@ -32,5 +37,5 @@
   "license": "https://spdx.org/licenses/MIT",
   "name": "MOSuite: R package for differential multi-omics analysis",
   "url": "https://ccbr.github.io/MOSuite/",
-  "version": "0.4.2.9000"
+  "version": "0.5.0.9001"
 }

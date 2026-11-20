@@ -1,6 +1,6 @@
 Package: MOSuite
 Title: R package for differential multi-omics analysis
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(
     person("Kelly", "Sovacool", , "kelly.sovacool@nih.gov", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3283-829X")),
@@ -9,7 +9,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-8978-8495")),
     person("Samantha", "Chill", , "samantha.chill@nih.gov", role = "aut",
            comment = c(ORCID = "0000-0002-8734-9875")),
-    person("T. Joshua", "Meyer", , "thomas.meyer@nih.gov", role = "ctb"),
+    person("T. Joshua", "Meyer", , "thomas.meyer@nih.gov", role = "aut"),
     person("CCR Collaborative Bioinformatics Resource", role = "cph")
   )
 Description: Multi-Omics Suite provides a suite of functions to clean,
@@ -88,7 +88,7 @@ VignetteBuilder:
 biocViews:
 Config/Needs/dev: cffr, covr, here, lintr, pkgdown,
     rcmdcheck, xml2
-Config/roxygen2/version: 8.1.0
+Config/roxygen2/version: 8.1.1
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
